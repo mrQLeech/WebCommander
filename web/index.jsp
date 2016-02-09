@@ -9,9 +9,24 @@
 <html>
   <head>
     <title>$Title$</title>
-    <link href="Styles/main.css" type="text/css"/>
+    <link href="./Styles/bootstrap.css" rel="stylesheet" />
+    <link href="./Styles/main.css"rel="stylesheet"/>
   </head>
   <body>
- 
+    <div class="container">
+      <div class="row">
+        <div class="span6">
+          <div class="container">
+            1
+          </div>
+        </div>
+        <div class="span6">
+          <div class="container">
+            1
+          </div>
+        </div>
+
+      </div>
+    </div>
   </body>
 </html>
