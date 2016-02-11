@@ -16,14 +16,10 @@
     <div class="container">
       <div class="row">
         <div class="span6">
-          <div class="container">
-            1
-          </div>
+         1
         </div>
         <div class="span6">
-          <div class="container">
-            1
-          </div>
+          1
         </div>
 
       </div>
