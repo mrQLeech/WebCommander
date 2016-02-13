@@ -1,0 +1,4 @@
+//file path properties
+webRootFolderName=root:/
+localFileHolderFolder=~/fileHolder
+localFileSystemDiscPrefix=_disc_
