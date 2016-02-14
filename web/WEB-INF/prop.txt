@@ -1,0 +1,4 @@
+#file path properties
+webRootFolderName=root:\
+localFileHolderFolder=D:\GitHub\WebCommander\fileHolder
+localFileSystemDiscPrefix=_disc_

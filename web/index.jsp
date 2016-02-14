@@ -11,65 +11,22 @@
     <title>$Title$</title>
     <link href="./Styles/bootstrap.css" rel="stylesheet" />
     <link href="./Styles/main.css"rel="stylesheet"/>
+    <script src="Scripts/jquery.js" type="text/javascript"></script>
+    <script src="Scripts/main.js" type="text/javascript"></script>
+
   </head>
   <body>
     <div class="container">
-      <div class="container main-container">
-        <div class="row container buttons-container">
-          <div class="do-button create-folder-button inline-item"></div>
-          <div class="do-button load-file-button inline-item"></div>
-          <div class="do-button move-button inline-item"></div>
-          <div class="do-button copy-button inline-item"></div>
-          <div class="do-button delete-button inline-item"></div>
-        </div>
+      <div class="container main-container border-area">
+        <jsp:include page="Views/navBar.jsp"></jsp:include>
         <div class="main-area">
-          <div class="row">
-            <div class="nav-panel">
-              <div class="container">
-                <form class="nav-text-box">
-                  <input type="text" class="fs-path">
-                </form>
-              </div>
-              <div class="container file-panel-holder">
-                <div class="file-panel">
-                  <table class="file-table">
-                    <thead>
-                      <tr>
-                        <td></td>
-                        <td>Имя файла</td>
-                        <td>Размер</td>
-                        <td>Дата изменения</td>
-                        <td>Только чтение</td>
-                        <td>Архивный</td>
-                        <td>Системный</td>
+            <jsp:include page="Views/filesPanel.jsp"></jsp:include>
+            <jsp:include page="Views/filesPanel.jsp"></jsp:include>
 
-                      </tr>
-                    </thead>
-                  </table>
-                </div>
-              </div>
-              <div class="container file-panel-holder">
-                <div class="file-panel">
-                  <table class="file-table">
-                    <thead>
-                    <tr>
-                      <td></td>
-                      <td>Имя файла</td>
-                      <td>Размер</td>
-                      <td>Дата изменения</td>
-                      <td>Только чтение</td>
-                      <td>Архивный</td>
-                      <td>Системный</td>
-
-                    </tr>
-                    </thead>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
+
+
   </body>
 </html>

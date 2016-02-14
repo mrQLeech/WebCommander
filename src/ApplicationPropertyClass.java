@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -11,9 +12,12 @@ public class ApplicationPropertyClass {
     private static Properties _prop;
     public static String getProperty(String name) throws IOException {
         if (_prop == null){
+            Thread thread = Thread.currentThread();
+            ClassLoader classLoader = thread.getContextClassLoader();
+            InputStream input = classLoader.getResourceAsStream("../prop.txt");
+
             _prop = new Properties();
-            String path = new File(".").getCanonicalPath();
-            _prop.load(new FileInputStream("C:/prop.txt"));
+            _prop.load(input);
         }
 
         return _prop.getProperty(name);

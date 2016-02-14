@@ -11,18 +11,22 @@
     <title>$Title$</title>
     <link href="./Styles/bootstrap.css" rel="stylesheet" />
     <link href="./Styles/main.css"rel="stylesheet"/>
+    <script src="Scripts/jquery.js" type="text/javascript"></script>
+    <script src="Scripts/main.js" type="text/javascript"></script>
+
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="span6">
-         1
-        </div>
-        <div class="span6">
-          1
-        </div>
+      <div class="container main-container border-area">
+        <jsp:include page="Views/navBar.jsp"></jsp:include>
+        <div class="main-area">
+            <jsp:include page="Views/filesPanel.jsp"></jsp:include>
+            <jsp:include page="Views/filesPanel.jsp"></jsp:include>
 
+        </div>
       </div>
     </div>
+
+
   </body>
 </html>

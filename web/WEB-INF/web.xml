@@ -11,4 +11,15 @@
         <servlet-name>MainServ</servlet-name>
         <url-pattern>/main</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>FileListServlet</servlet-name>
+        <servlet-class>FileListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileListServlet</servlet-name>
+        <url-pattern>/files</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <location>/Views/Error.jsp</location>
+    </error-page>
 </web-app>

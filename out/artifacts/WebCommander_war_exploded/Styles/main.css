@@ -2,3 +2,122 @@ body {
     background-color: darkblue;
     color: white;
 }
+
+.buttons-container{
+    height: 45px;
+}
+.fs-path{
+    width: calc(100% - 54px);
+    margin: 5px;
+    background-color: transparent;
+
+}
+
+.doted-area{
+
+    background-image: linear-gradient(45deg, #497cff 25%, darkblue 25%, darkblue 75%, #497cff 75%, #497cff),
+    linear-gradient(45deg, #497cff 25%, darkblue 25%, darkblue 75%, #497cff 75%, #497cff);
+    background-size:4px 4px;
+    background-position: 0 0, 50px 50px;
+}
+
+.main-container{
+    height: calc(100% - 20px);
+    margin: 5px 0px 5px 0px;
+    padding: 0;
+}
+
+.border-area{
+    border: solid #ffef05 2px;
+}
+
+.border-area-inner{
+    border: solid #497cff 1px;
+}
+
+.nav-panel{
+    float: left;
+    bottom: 0px;
+    width: calc(50% - 10px);
+    height: calc(100% - 50px);
+    margin-left: 5px;
+}
+
+.nav-text-box-holder{
+    height: 36px;
+    width: 100%;
+}
+
+.file-panel-holder{
+    width: calc(100% - 11px);
+    height: calc(100% - 47px);
+    margin: 6px;
+}
+
+.file-table{
+    margin: 6px 0 6px 0;
+    width: 100%;
+    padding: 3px;
+    height: calc(100% - 12px);
+
+}
+
+
+.file-table thead td{
+    min-width: 20px;
+    border: solid #22bfed 1px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 10pt;
+}
+
+
+
+.inline-item{
+    float: left;
+}
+
+.do-button{
+    height: 30px;
+    width: 200px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.do-button.create-button{
+    margin-left: calc(50% - 400px);
+}
+
+li div.do-button {
+    margin-left: 0px;
+}
+
+.do-button ul{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    background-color: darkblue;
+    padding: 4px;
+    list-style-type: none;
+}
+
+.do-button ul li:first-child div{
+    margin-top: 0px;
+}
+.do-button ul li div{
+    margin-top: 5px;
+}
+
+.do-button:hover ul{
+    display: block;
+
+}
+
+
+.do-button:hover{
+    background-image: none;
+    background-color: darkblue;
+}
+
