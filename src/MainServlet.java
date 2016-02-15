@@ -1,3 +1,6 @@
+import PropertyManagement.ApplicationPropertyClass;
+import PropertyManagement.PropertyField;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +23,6 @@ public class MainServlet extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-        out.print(ApplicationPropertyClass.getProperty("webRootFolderName"));
+        out.print(ApplicationPropertyClass.getProperty(PropertyField.LOCAL_PSEUDO_DISC_PREFIX_NAME));
     }
 }

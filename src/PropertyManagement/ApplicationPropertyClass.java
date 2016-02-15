@@ -1,3 +1,5 @@
+package PropertyManagement;
+
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -10,7 +12,7 @@ import java.util.Properties;
  */
 public class ApplicationPropertyClass {
     private static Properties _prop;
-    public static String getProperty(String name) throws IOException {
+    public static String getProperty(PropertyField field) throws IOException {
         if (_prop == null){
             Thread thread = Thread.currentThread();
             ClassLoader classLoader = thread.getContextClassLoader();
@@ -20,6 +22,7 @@ public class ApplicationPropertyClass {
             _prop.load(input);
         }
 
-        return _prop.getProperty(name);
+        return _prop.getProperty(field.toString());
     }
 }
+
