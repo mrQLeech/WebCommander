@@ -1,4 +1,4 @@
 #file path properties
-PSEUDO_ROOT_FOLDER_NAME=root:\
+PSEUDO_ROOT_FOLDER_NAME=root:
 LOCAL_FILE_HOLDER_DIRECTORY=D:\GitHub\WebCommander\fileHolder
 LOCAL_PSEUDO_DISC_PREFIX_NAME=_disc_

@@ -22,11 +22,8 @@
         <div class="main-area">
             <jsp:include page="Views/filesPanel.jsp"></jsp:include>
             <jsp:include page="Views/filesPanel.jsp"></jsp:include>
-
         </div>
       </div>
     </div>
-
-
   </body>
 </html>

@@ -1,13 +1,12 @@
-import PropertyManagement.ApplicationPropertyClass;
-import PropertyManagement.PropertyField;
+import FileSystemManager.FilesPathConverter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
-import java.io.StringReader;
 import java.io.Writer;
 
 /**
@@ -21,6 +20,7 @@ public class FileListServlet extends HttpServlet {
         response.setContentType("text/html");
 
         String markup = getFilesList(request.getParameter("path"));
+
         pw.write(markup);
     }
 
@@ -29,15 +29,17 @@ public class FileListServlet extends HttpServlet {
         throw ex;
     }
 
-    private String getFilesList(String panelPath){
+    private String getFilesList(String pseudoPath){
         StringBuilder res = new StringBuilder();
         try{
-            String rootFolderId = ApplicationPropertyClass.getProperty(PropertyField.PSEUDO_ROOT_FOLDER_NAME);
-            String discPrefix = ApplicationPropertyClass.getProperty(PropertyField.LOCAL_PSEUDO_DISC_PREFIX_NAME);
-            String localFileHolder = ApplicationPropertyClass.getProperty(PropertyField.LOCAL_FILE_HOLDER_DIRECTORY);
+            String path = FilesPathConverter.ConvertToPath(pseudoPath);
+            File dir = new File(path);
+            if (dir.isDirectory()){
+                File[] listOfFiles = dir.listFiles();
+                for (File f: listOfFiles){
 
-
-
+                }
+            }
 
         }catch (Exception ex){
 
