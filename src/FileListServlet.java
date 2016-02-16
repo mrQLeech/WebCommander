@@ -34,13 +34,12 @@ public class FileListServlet extends HttpServlet {
         try{
             String path = FilesPathConverter.ConvertToPath(pseudoPath);
             File dir = new File(path);
-            if (dir.isDirectory()){
+            if (dir.exists() && dir.isDirectory()){
                 File[] listOfFiles = dir.listFiles();
                 for (File f: listOfFiles){
 
                 }
             }
-
         }catch (Exception ex){
 
         }

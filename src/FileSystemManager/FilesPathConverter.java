@@ -17,8 +17,11 @@ public class FilesPathConverter {
 
             String pseudoPathRoot = ApplicationPropertyClass.getProperty(PropertyField.PSEUDO_ROOT_FOLDER_NAME);
             String localFileHolderPath = ApplicationPropertyClass.getProperty(PropertyField.LOCAL_FILE_HOLDER_DIRECTORY);
-
-            res = pseudoPath.replaceFirst(pseudoPathRoot, localFileHolderPath);
+            if (pseudoPath.contains(pseudoPathRoot)){
+                res = pseudoPath.replaceFirst(pseudoPathRoot, localFileHolderPath);
+            }else{
+                res = localFileHolderPath;
+            }
         }catch (IOException ex){
             res = "";
         }
