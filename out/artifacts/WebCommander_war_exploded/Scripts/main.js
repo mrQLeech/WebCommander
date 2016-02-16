@@ -1,11 +1,10 @@
 $(window).ready(function(){
 
     addActivityToButtons();
-    //addDataToFilePanels();
+    addDataToFilePanels();
 });
 
 var addActivityToButtons = function(){
-
 }
 
 var addDataToFilePanels = function () {
@@ -17,8 +16,9 @@ var addDataToFilePanels = function () {
         var body = new Object();
         body.path = path;
         var resp = {};
-        var setResp = function(response){
-            resp = response;
+        var setResp = function(response, context){
+            $(context).find('table.file-table tbody').html(response);
+
         }
 
         postRequest("/files", body, "application/json", setResp, pans[i]);
@@ -31,10 +31,13 @@ var postRequest = function(recieveLink, body, dataType, callback, context){
         type: "POST",
         url: recieveLink,
         data: body,
-        success: function(response){
-            callback(response, context);
+        dataType:'text',
+        success: function(data){
+            callback(data, context);
         },
-        dataType: dataType,
-        async: true
+
+        async: false
+    }).done(function( data ) {
+        alert("Callback ran!" + data);
     });
 }

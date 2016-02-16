@@ -1,3 +1,4 @@
+import FileSystemManager.FileModel;
 import FileSystemManager.FilesPathConverter;
 
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * Created by Q on 15.02.2016.
@@ -32,16 +36,22 @@ public class FileListServlet extends HttpServlet {
     private String getFilesList(String pseudoPath){
         StringBuilder res = new StringBuilder();
         try{
-            String path = FilesPathConverter.ConvertToPath(pseudoPath);
+            String path = FilesPathConverter.convertToPath(pseudoPath);
             File dir = new File(path);
+            if (!FilesPathConverter.isRoot(pseudoPath) && !pseudoPath.isEmpty() ){
+                FileModel file = new FileModel();
+                res.append(file.toString());
+            }
+
             if (dir.exists() && dir.isDirectory()){
                 File[] listOfFiles = dir.listFiles();
                 for (File f: listOfFiles){
-
+                    FileModel file = new FileModel(f);
+                    res.append(file.toString());
                 }
             }
         }catch (Exception ex){
-
+            res = new StringBuilder();
         }
 
         return res.toString();

@@ -58,7 +58,7 @@ body {
     margin: 6px 0 6px 0;
     width: 100%;
     padding: 3px;
-    height: calc(100% - 12px);
+    /*height: calc(100% - 12px);*/
 
 }
 
@@ -121,3 +121,10 @@ li div.do-button {
     background-color: darkblue;
 }
 
+
+.file-table tbody tr,
+.file-table tbody tr td{
+    height: 33px;
+    background-color: transparent;
+    line-height: 33px;
+}

@@ -11,17 +11,10 @@ import java.io.IOException;
  */
 public class FilesPathConverter {
 
-    public static String ConvertToPath(String pseudoPath) {
+    public static String convertToPath(String pseudoPath) {
         String res;
         try{
-
-            String pseudoPathRoot = ApplicationPropertyClass.getProperty(PropertyField.PSEUDO_ROOT_FOLDER_NAME);
-            String localFileHolderPath = ApplicationPropertyClass.getProperty(PropertyField.LOCAL_FILE_HOLDER_DIRECTORY);
-            if (pseudoPath.contains(pseudoPathRoot)){
-                res = pseudoPath.replaceFirst(pseudoPathRoot, localFileHolderPath);
-            }else{
-                res = localFileHolderPath;
-            }
+            res = replacePathByProp(pseudoPath, PropertyField.PSEUDO_ROOT_FOLDER_NAME, PropertyField.LOCAL_FILE_HOLDER_DIRECTORY);
         }catch (IOException ex){
             res = "";
         }
@@ -29,19 +22,38 @@ public class FilesPathConverter {
     }
 
 
-    public static String ConvertToPseudoPath(String path) {
+    public static String convertToPseudoPath(String path) {
         String res;
         try {
-            String pseudoPathRoot = ApplicationPropertyClass.getProperty(PropertyField.PSEUDO_ROOT_FOLDER_NAME);
-            String localFileHolderPath = ApplicationPropertyClass.getProperty(PropertyField.LOCAL_FILE_HOLDER_DIRECTORY);
 
-            res = path.replaceFirst(localFileHolderPath, pseudoPathRoot);
+            res = replacePathByProp(path,  PropertyField.LOCAL_FILE_HOLDER_DIRECTORY, PropertyField.PSEUDO_ROOT_FOLDER_NAME);
+
         }catch (IOException ex) {
            res = "";
         }
         return res;
     }
 
+    private static String replacePathByProp(String path, PropertyField replaceableProp, PropertyField replacerProp) throws IOException {
+        String res;
+        String replaceable = ApplicationPropertyClass.getProperty(replaceableProp);
+        String replacer = ApplicationPropertyClass.getProperty(replacerProp);
+
+        if (path.contains(replaceable)){
+            res = path.replaceFirst(replaceable, replacer);
+        }else{
+            res = replacer;
+        }
+        return  res;
+    }
+
+    public static boolean isRoot (String pseudoPath) throws IOException {
+        String rootPseudo = ApplicationPropertyClass.getProperty(PropertyField.PSEUDO_ROOT_FOLDER_NAME);
+        if (pseudoPath == rootPseudo){
+            return true;
+        }
+        return false;
+    }
 
 
 }
