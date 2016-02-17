@@ -22,7 +22,5 @@ public class MainServlet extends HttpServlet {
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
-
-        out.print(ApplicationPropertyClass.getProperty(PropertyField.LOCAL_PSEUDO_DISC_PREFIX_NAME));
     }
 }

@@ -37,7 +37,5 @@ var postRequest = function(recieveLink, body, dataType, callback, context){
         },
 
         async: false
-    }).done(function( data ) {
-        alert("Callback ran!" + data);
     });
 }

@@ -8,12 +8,15 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.DosFileAttributes;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import IconManager.IconManager;
 
 
 /**
  * Created by Q on 16.02.2016.
  */
 public class FileModel {
+    private String iconPath = "";
+
     private String name;
     private long size;
     private Date editDate;
@@ -40,10 +43,11 @@ public class FileModel {
             return;
         }
 
-        this.name = file.getName();
-        this.size = file.length();
-        this.editDate = new Date(file.lastModified());
+        iconPath = IconManager.getFileIconPath(file);
 
+        this.name = file.getName();
+        this.size = file.length()/8;
+        this.editDate = new Date(file.lastModified());
         Path path = Paths.get(file.getPath());
 
         DosFileAttributes ra =  Files.readAttributes(path, DosFileAttributes.class);
@@ -68,7 +72,7 @@ public class FileModel {
             attr.append(separateAttributeAppender(attr));
             attr.append("ARC");
         }
-
+        attributes = attr.toString();
         isFolder = file.isDirectory();
     }
 
@@ -85,7 +89,8 @@ public class FileModel {
         res.append("<tr>");
 
         if (isExist && !isRoot){
-            res.append("<td class='border-area-inner'><img class=\"file-icon\" src=\"URL\" alt=\"file\" /></td>");
+
+            res.append("<td class='border-area-inner'><img class=\"file-icon\" src=\"" + iconPath + "\" alt=\"\" /></td>");
             res.append("<td class='border-area-inner'>" + name + "</td>");
             res.append("<td class='border-area-inner'>" + size + "</td>");
             res.append("<td class='border-area-inner'>" +  dateFormat.format(editDate)  + "</td>");

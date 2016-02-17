@@ -54,6 +54,8 @@ body {
     margin: 6px;
 }
 
+
+
 .file-table{
     margin: 6px 0 6px 0;
     width: 100%;
@@ -124,7 +126,29 @@ li div.do-button {
 
 .file-table tbody tr,
 .file-table tbody tr td{
-    height: 33px;
+    height: 32px;
     background-color: transparent;
-    line-height: 33px;
+    line-height: 32px;
+    background-image: none;
+}
+
+
+.file-table thead tr td:last-child,
+.file-table tbody tr td:last-child{
+    width: 75px;
+}
+
+.file-table thead tr td:nth-last-child(2),
+.file-table tbody tr td:nth-last-child(2){
+    width: 145px;
+}
+
+.file-table thead tr td:nth-last-child(3),
+.file-table tbody tr td:nth-last-child(3){
+    width: 85px;
+}
+
+.file-table thead tr td:first-child,
+.file-table tbody tr td:first-child{
+    width: 32px;
 }

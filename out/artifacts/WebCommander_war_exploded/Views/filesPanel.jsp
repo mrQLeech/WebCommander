@@ -10,12 +10,12 @@
 
     <div class="container file-panel-holder border-area-inner active">
         <div class="file-panel">
-            <table class="file-table  border-area-inner doted-area">
-                <thead>
+            <table class="file-table  border-area-inner ">
+                <thead class="doted-area">
                 <tr>
                     <td><br></td>
                     <td>Имя файла</td>
-                    <td>Размер</td>
+                    <td>Размер, B</td>
                     <td>Дата изменения</td>
                     <td>Атрибуты</td>
                 </tr>

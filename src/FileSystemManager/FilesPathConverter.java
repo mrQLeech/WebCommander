@@ -34,6 +34,20 @@ public class FilesPathConverter {
         return res;
     }
 
+    public  static String getNewPath(String old, String selected){
+        String res = "";
+
+        String[] spl = old.split("\\\\");
+
+        if (selected == ".."){
+
+        }else{
+
+        }
+
+        return  res;
+    }
+
     private static String replacePathByProp(String path, PropertyField replaceableProp, PropertyField replacerProp) throws IOException {
         String res;
         String replaceable = ApplicationPropertyClass.getProperty(replaceableProp);

@@ -23,7 +23,17 @@ public class FileListServlet extends HttpServlet {
         Writer pw = response.getWriter();
         response.setContentType("text/html");
 
-        String markup = getFilesList(request.getParameter("path"));
+        String path = request.getParameter("path");
+        String selected = request.getParameter("selected");
+
+
+
+        StringBuilder sb = new StringBuilder();
+        String markup = getFilesList(path);
+        sb.append("{\"markup\":");
+        sb.append("\"" + markup + "\",");
+        sb.append("\"path\":");
+
 
         pw.write(markup);
     }
@@ -56,4 +66,6 @@ public class FileListServlet extends HttpServlet {
 
         return res.toString();
     }
+
+
 }
