@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>WebCommander</title>
     <link href="./Styles/bootstrap.css" rel="stylesheet" />
     <link href="./Styles/main.css"rel="stylesheet"/>
     <script src="Scripts/jquery.js" type="text/javascript"></script>

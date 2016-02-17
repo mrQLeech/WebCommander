@@ -1,6 +1,11 @@
 body {
     background-color: darkblue;
     color: white;
+    font-size: 12px;
+}
+
+body div.container{
+    font-size: 12px;
 }
 
 .buttons-container{
@@ -86,6 +91,7 @@ body {
     margin-top: 5px;
     text-align: center;
     vertical-align: middle;
+    padding-top:6px;
 }
 
 .do-button.create-button{
@@ -121,6 +127,7 @@ li div.do-button {
 .do-button:hover{
     background-image: none;
     background-color: darkblue;
+    cursor: pointer;
 }
 
 
@@ -151,4 +158,26 @@ li div.do-button {
 .file-table thead tr td:first-child,
 .file-table tbody tr td:first-child{
     width: 32px;
+}
+
+
+.nav-panel table tbody tr{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.nav-panel table tbody tr.active{
+    border: solid 3px #22bfed;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.nav-panel.active table tbody tr.active{
+    background-color: #22bfed;
+}
+
+.nav-panel table tbody tr:hover{
+    background-color: #22bfed;
 }

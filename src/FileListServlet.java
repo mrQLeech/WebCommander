@@ -32,7 +32,8 @@ public class FileListServlet extends HttpServlet {
         String markup = getFilesList(path);
         sb.append("{\"markup\":");
         sb.append("\"" + markup + "\",");
-        sb.append("\"path\":");
+        sb.append("\"path\":\"\"");
+        sb.append("}");
 
 
         pw.write(markup);

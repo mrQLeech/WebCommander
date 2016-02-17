@@ -54,6 +54,7 @@ public class IconManager {
 
         String fileName = file.getName();
         String fileExt = fileName.substring(fileName.indexOf(".") + 1);
+        fileExt = fileExt.toLowerCase();
         String imgName = fileExt + ".png";
 
         if (iconList.contains(imgName)){
