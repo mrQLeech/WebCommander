@@ -5,6 +5,7 @@ import PropertyManagement.PropertyField;
 
 import javax.imageio.IIOException;
 import java.io.IOException;
+import java.nio.file.Path;
 
 /**
  * Created by Q on 13.02.2016.
@@ -14,7 +15,9 @@ public class FilesPathConverter {
     public static String convertToPath(String pseudoPath) {
         String res;
         try{
+            pseudoPath = pseudoPath.replace(getRoot(), getRoot() + "/");
             res = replacePathByProp(pseudoPath, PropertyField.PSEUDO_ROOT_FOLDER_NAME, PropertyField.LOCAL_FILE_HOLDER_DIRECTORY);
+            res = parseToPath(res);
         }catch (IOException ex){
             res = "";
         }
@@ -27,7 +30,7 @@ public class FilesPathConverter {
         try {
 
             res = replacePathByProp(path,  PropertyField.LOCAL_FILE_HOLDER_DIRECTORY, PropertyField.PSEUDO_ROOT_FOLDER_NAME);
-
+            res = parseToPseudoPath(res);
         }catch (IOException ex) {
            res = "";
         }
@@ -35,27 +38,33 @@ public class FilesPathConverter {
     }
 
     public  static String getNewPath(String old, String selected) throws IOException {
+        old = old.replace("//", "/");
         if (old.isEmpty()){
-            return  getRoot() + "\\\\";
+            String res = getRoot();
+            return res ;
         }
 
-        String[] spl = old.split("\\\\");
+        String[] spl = old.split("/");
 
         StringBuilder sb = new StringBuilder();
-        if (selected == ".."){
+        if (selected.equals("..")){
 
             for (int i = 0; i < spl.length -1; i++){
                 if (i == 0) {
                     sb.append(getRoot());
-                    sb.append("\\\\");
+
                     continue;
                 }
                 sb.append(spl[i]);
-                sb.append("\\\\");
+                sb.append("/");
             }
         }else{
+
             sb.append(old );
-            sb.append("\\\\");
+            if (!old.equals(getRoot()) && old.lastIndexOf("/") < (old.length() -1)){
+                sb.append("/");
+            }
+
             sb.append(selected);
         }
 
@@ -65,19 +74,21 @@ public class FilesPathConverter {
     private static String replacePathByProp(String path, PropertyField replaceableProp, PropertyField replacerProp) throws IOException {
         String res;
         String replaceable = ApplicationPropertyClass.getProperty(replaceableProp);
-        String replacer = ApplicationPropertyClass.getProperty(replacerProp);
+        String replacer = parseToPseudoPath(ApplicationPropertyClass.getProperty(replacerProp));
+
 
         if (path.contains(replaceable)){
             res = path.replaceFirst(replaceable, replacer);
         }else{
             res = replacer;
         }
+
         return  res;
     }
 
     public static boolean isRoot (String pseudoPath) throws IOException {
         String rootPseudo = ApplicationPropertyClass.getProperty(PropertyField.PSEUDO_ROOT_FOLDER_NAME);
-        if (pseudoPath == rootPseudo){
+        if (pseudoPath.equals(rootPseudo)){
             return true;
         }
         return false;
@@ -87,6 +98,16 @@ public class FilesPathConverter {
         String rootPseudo = ApplicationPropertyClass.getProperty(PropertyField.PSEUDO_ROOT_FOLDER_NAME);
 
         return rootPseudo;
+    }
+
+    private  static String parseToPseudoPath(String path){
+        String res = path.replace("\\", "/");
+        return res;
+    }
+
+    private  static String parseToPath(String path){
+        String res = path.replace("/", "\\\\");
+        return res;
     }
 
 

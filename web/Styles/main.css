@@ -194,3 +194,46 @@ li div.do-button {
     user-select: none;
 }
 
+.splash-panel{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: block;
+    margin: 0;
+}
+
+.create-folder-form-panel{
+    display: block;
+    position: relative;
+    height: 200px;
+    width: 400px;
+    z-index: 2;
+    top: 0px;
+    margin-left: calc(50% - 200px);
+    margin-top: 200px;
+    background-color: darkblue;
+    border: double ;
+
+}
+
+input.folder-name{
+
+}
+
+.cancel{
+    left: 175px;
+}
+
+.create-folder{
+    left: 100px;
+}
+
+.cancel,
+.create-folder{
+    width: 100px;
+    position: relative;
+}

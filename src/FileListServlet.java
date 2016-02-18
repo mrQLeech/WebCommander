@@ -24,10 +24,10 @@ public class FileListServlet extends HttpServlet {
         response.setContentType("text/html");
 
         String path = request.getParameter("path");
-        String selected = request.getParameter("selected");
+        String selected = request.getParameter("selection");
 
         String nPath = FilesPathConverter.getNewPath(path, selected);
-        String markup = getFilesList(path);
+        String markup = getFilesList(nPath);
 
         StringBuilder sb = new StringBuilder();
 

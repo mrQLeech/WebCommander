@@ -29,6 +29,7 @@ public class FileModel {
      * create root model
      */
     public FileModel(){
+
         isRoot = true;
     }
 
@@ -88,9 +89,11 @@ public class FileModel {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd  HH:mm:ss");
         res.append("<tr>");
 
+        String alt = isFolder? "dir":"file";
+
         if (isExist && !isRoot){
 
-            res.append("<td class='border-area-inner'><img class=\'file-icon\' src=\'" + iconPath + "\' alt=\'\' /></td>");
+            res.append("<td class='border-area-inner'><img class=\'file-icon\' src=\'" + iconPath + "\' alt=\'" + alt + "\' /></td>");
             res.append("<td class='border-area-inner'>" + name + "</td>");
             res.append("<td class='border-area-inner'>" + size + "</td>");
             res.append("<td class='border-area-inner'>" +  dateFormat.format(editDate)  + "</td>");

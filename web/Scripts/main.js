@@ -2,14 +2,14 @@ $(window).ready(function(){
 
     addActivityToButtons();
     refresh();
-    addActivityToPanels();
+
 });
 
 var addActivityToButtons = function(){
 }
 
-var addActivityToPanels = function () {
-    $('.nav-panel tbody tr').click(function(sender, arg){
+var addActivityToPanel = function (panel) {
+    $(panel).find('table tbody tr').click(function(sender, arg){
         $(this).parent().find('tr.active').removeClass('active');
         $('.nav-panel ').removeClass('active');
         var np = $(this).parents('.nav-panel');
@@ -19,7 +19,7 @@ var addActivityToPanels = function () {
         $(this).addClass('active');
     });
 
-    $('.nav-panel tbody tr').dblclick(function(sender, arg){
+    $(panel).find('table tbody tr').dblclick(function(sender, arg){
         var panel = $(this).parents('.nav-panel')[0];
         refreshPanel(panel, true);
     });
@@ -47,7 +47,7 @@ var refreshPanel = function(panel, pathChanging){
     body.path = path;
 
     if (pathChanging){
-        var selection = $(panel).find('table tbody tr.active td.name-cell').text;
+        var selection = $(panel).find('table tbody tr.active td:nth-child(2)').text();
         body.selection = selection;
     }
 
@@ -55,6 +55,7 @@ var refreshPanel = function(panel, pathChanging){
         var resObj = JSON.parse(response);
         var mark = resObj.markup;
         var path = resObj.path;
+
 
         $(context).find('table.file-table tbody').html(mark);
         if (selected.length !== 0){
@@ -69,6 +70,7 @@ var refreshPanel = function(panel, pathChanging){
 
         $(context).find('input.fs-path').val(path);
 
+        addActivityToPanel(panel);
     }
 
     postRequest("/files", body, "application/json", setResp, panel);
