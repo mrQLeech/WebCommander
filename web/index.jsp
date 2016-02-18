@@ -16,7 +16,7 @@
 
   </head>
   <body>
-    <div class="container">
+    <div class="container back-area-container">
       <div class="container main-container border-area">
         <jsp:include page="Views/navBar.jsp"></jsp:include>
         <div class="main-area">

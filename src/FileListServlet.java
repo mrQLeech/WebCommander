@@ -26,23 +26,24 @@ public class FileListServlet extends HttpServlet {
         String path = request.getParameter("path");
         String selected = request.getParameter("selected");
 
-
+        String nPath = FilesPathConverter.getNewPath(path, selected);
+        String markup = getFilesList(path);
 
         StringBuilder sb = new StringBuilder();
-        String markup = getFilesList(path);
+
         sb.append("{\"markup\":");
-        sb.append("\"" + markup + "\",");
-        sb.append("\"path\":\"\"");
+        sb.append("\"");
+        sb.append(markup);
+        sb.append("\",");
+        sb.append("\"path\":\"");
+        sb.append(nPath);
+        sb.append("\"");
         sb.append("}");
 
 
-        pw.write(markup);
+        pw.write(sb.toString());
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        ServletException ex = new ServletException();
-        throw ex;
-    }
 
     private String getFilesList(String pseudoPath){
         StringBuilder res = new StringBuilder();
@@ -68,5 +69,11 @@ public class FileListServlet extends HttpServlet {
         return res.toString();
     }
 
+
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        ServletException ex = new ServletException();
+        throw ex;
+    }
 
 }

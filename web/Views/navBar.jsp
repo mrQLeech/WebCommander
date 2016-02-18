@@ -1,5 +1,5 @@
 <%@page pageEncoding="UTF-8"%>
-<div class="row container buttons-container">
+<div class="container buttons-container">
     <div class="do-button create-button inline-item doted-area border-area-inner">
         <span>Создать</span>
         <ul class="border-area-inner">

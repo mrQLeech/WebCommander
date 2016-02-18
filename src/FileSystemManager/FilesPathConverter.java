@@ -34,18 +34,32 @@ public class FilesPathConverter {
         return res;
     }
 
-    public  static String getNewPath(String old, String selected){
-        String res = "";
+    public  static String getNewPath(String old, String selected) throws IOException {
+        if (old.isEmpty()){
+            return  getRoot() + "\\\\";
+        }
 
         String[] spl = old.split("\\\\");
 
+        StringBuilder sb = new StringBuilder();
         if (selected == ".."){
 
+            for (int i = 0; i < spl.length -1; i++){
+                if (i == 0) {
+                    sb.append(getRoot());
+                    sb.append("\\\\");
+                    continue;
+                }
+                sb.append(spl[i]);
+                sb.append("\\\\");
+            }
         }else{
-
+            sb.append(old );
+            sb.append("\\\\");
+            sb.append(selected);
         }
 
-        return  res;
+        return  sb.toString();
     }
 
     private static String replacePathByProp(String path, PropertyField replaceableProp, PropertyField replacerProp) throws IOException {
@@ -67,6 +81,12 @@ public class FilesPathConverter {
             return true;
         }
         return false;
+    }
+
+    private static String getRoot () throws IOException {
+        String rootPseudo = ApplicationPropertyClass.getProperty(PropertyField.PSEUDO_ROOT_FOLDER_NAME);
+
+        return rootPseudo;
     }
 
 

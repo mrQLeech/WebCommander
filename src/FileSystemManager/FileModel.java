@@ -90,7 +90,7 @@ public class FileModel {
 
         if (isExist && !isRoot){
 
-            res.append("<td class='border-area-inner'><img class=\"file-icon\" src=\"" + iconPath + "\" alt=\"\" /></td>");
+            res.append("<td class='border-area-inner'><img class=\'file-icon\' src=\'" + iconPath + "\' alt=\'\' /></td>");
             res.append("<td class='border-area-inner'>" + name + "</td>");
             res.append("<td class='border-area-inner'>" + size + "</td>");
             res.append("<td class='border-area-inner'>" +  dateFormat.format(editDate)  + "</td>");

@@ -20,7 +20,8 @@ var addActivityToPanels = function () {
     });
 
     $('.nav-panel tbody tr').dblclick(function(sender, arg){
-
+        var panel = $(this).parents('.nav-panel')[0];
+        refreshPanel(panel, true);
     });
 
 }
@@ -33,28 +34,44 @@ var refresh = function(){
     }
 
     for (var i = 0; i < pans.length; i++){
-        var path = $(pans[i]).find('input.fs-path')[0].value;
-        var selected = $(pans[i]).find('table tbody tr.active');
+        refreshPanel(pans[i]);
+    }
+}
 
-        var body = new Object();
-        body.path = path;
+var refreshPanel = function(panel, pathChanging){
+    var path = $(panel).find('input.fs-path')[0].value;
 
-        var resp = {};
-        var setResp = function(response, context){
-            $(context).find('table.file-table tbody').html(response);
-            if (selected.length !== 0){
-                var n = $(selected).find('td:nth-child(2)').text();
-                var elem = $(context).find('table tr td:nth-child(2)[text="' + n + '"]').first();
-                if (elem !== undefined ){
-                    $(elem).parent().addClass('active');
-                }
-            }else{
-                $(pans[i]).find('table tbody tr').first().addClass('active');
+    var body = new Object();
+    var selected = $(panel).find('table tbody tr.active');
+
+    body.path = path;
+
+    if (pathChanging){
+        var selection = $(panel).find('table tbody tr.active td.name-cell').text;
+        body.selection = selection;
+    }
+
+    var setResp = function(response, context){
+        var resObj = JSON.parse(response);
+        var mark = resObj.markup;
+        var path = resObj.path;
+
+        $(context).find('table.file-table tbody').html(mark);
+        if (selected.length !== 0){
+            var n = $(selected).find('td:nth-child(2)').text();
+            var elem = $(context).find('table tr td:nth-child(2)[text="' + n + '"]').first();
+            if (elem !== undefined ){
+                $(elem).parent().addClass('active');
             }
+        }else{
+            $(panel).find('table tbody tr').first().addClass('active');
         }
 
-        postRequest("/files", body, "application/json", setResp, pans[i]);
+        $(context).find('input.fs-path').val(path);
+
     }
+
+    postRequest("/files", body, "application/json", setResp, panel);
 }
 
 var postRequest = function(recieveLink, body, dataType, callback, context){
