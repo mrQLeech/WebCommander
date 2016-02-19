@@ -28,12 +28,14 @@
     </div>
     <div class="container splash-panel">
 
-      <div class="create-folder-form-panel inline-item border-area-inner">
-        <label class="fs-label">Имя директории: </label>
-        <input type="text" class="fs-path folder-name inline-item doted-area border-area-inner" >
-        <div class="do-button create-folder inline-item doted-area border-area-inner">Ок</div>
-        <div class="do-button cancel inline-item doted-area border-area-inner">Отмена.</div>
-      </div>
+
+    </div>
+
+    <div class="create-folder-form-panel inline-item border-area-inner">
+      <label class="fs-label">Имя директории: </label>
+      <input type="text" class="fs-path folder-name inline-item doted-area border-area-inner" >
+      <div class="do-button create-folder inline-item doted-area border-area-inner">Ок</div>
+      <div class="do-button cancel inline-item doted-area border-area-inner">Отмена.</div>
     </div>
 
 

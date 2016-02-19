@@ -39,6 +39,8 @@ public class FilesPathConverter {
 
     public  static String getNewPath(String old, String selected) throws IOException {
         old = old.replace("//", "/");
+        selected = selected == null ? "" : selected;
+
         if (old.isEmpty()){
             String res = getRoot();
             return res ;
@@ -47,6 +49,7 @@ public class FilesPathConverter {
         String[] spl = old.split("/");
 
         StringBuilder sb = new StringBuilder();
+
         if (selected.equals("..")){
 
             for (int i = 0; i < spl.length -1; i++){

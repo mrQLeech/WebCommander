@@ -202,14 +202,14 @@ li div.do-button {
     position: absolute;
     top: 0px;
     left: 0px;
-    display: block;
+    display: none;
     margin: 0;
 }
 
 .create-folder-form-panel{
-    display: block;
-    position: relative;
-    height: 200px;
+    display: none;
+    position: absolute;
+    height: 109px;
     width: 400px;
     z-index: 2;
     top: 0px;
@@ -217,19 +217,24 @@ li div.do-button {
     margin-top: 200px;
     background-color: darkblue;
     border: double ;
+}
+
+.create-folder-form-panel label{
+    margin-left: 5px;
+    margin-top: 5px;
 
 }
 
 input.folder-name{
-
+    width: calc(100% - 10px);
 }
 
 .cancel{
-    left: 175px;
+    left: 179px;
 }
 
 .create-folder{
-    left: 100px;
+    left: 169px;
 }
 
 .cancel,

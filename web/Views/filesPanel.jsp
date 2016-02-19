@@ -13,7 +13,7 @@
                 <thead class="doted-area">
                 <tr>
                     <td><br></td>
-                    <td class="cell-name">Имя файла</td>
+                    <td>Имя файла</td>
                     <td>Размер, B</td>
                     <td>Дата изменения</td>
                     <td>Атрибуты</td>

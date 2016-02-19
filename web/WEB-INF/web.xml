@@ -22,4 +22,12 @@
     <error-page>
         <location>/Views/Error.jsp</location>
     </error-page>
+    <servlet>
+        <servlet-name>FileManagerServ</servlet-name>
+        <servlet-class>FileManagerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileManagerServ</servlet-name>
+        <url-pattern>/fileManagerServ</url-pattern>
+    </servlet-mapping>
 </web-app>

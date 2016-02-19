@@ -1,19 +1,7 @@
 <%@page pageEncoding="UTF-8"%>
 <div class="container buttons-container">
     <div class="do-button create-button inline-item doted-area border-area-inner">
-        <span>Создать</span>
-        <ul class="border-area-inner">
-            <li>
-                <div class="do-button create-folder-button inline-item doted-area border-area-inner">
-                    <span>Папку</span>
-                </div>
-            </li>
-            <li>
-                <div class="do-button load-file-button inline-item doted-area border-area-inner">
-                    <span>Файл</span>
-                </div>
-            </li>
-        </ul>
+        <span>Создать папку</span>
     </div>
     <div class="do-button move-button inline-item doted-area border-area-inner">
         <span>Переместить</span>

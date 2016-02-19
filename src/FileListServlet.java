@@ -42,6 +42,8 @@ public class FileListServlet extends HttpServlet {
 
 
         pw.write(sb.toString());
+        pw.close();
+        pw.flush();
     }
 
 
